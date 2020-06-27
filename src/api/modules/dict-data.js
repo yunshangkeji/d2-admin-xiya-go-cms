@@ -5,7 +5,7 @@ export default ({ request }) => ({
    */
   DICTDATA_ALL (query = {}) {
     return request({
-      url: '/api/dictData/index',
+      url: '/admin/dictdata_all',
       method: 'post',
       data: query
     })

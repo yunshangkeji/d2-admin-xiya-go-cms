@@ -30,7 +30,7 @@ const service = axios.create()
 service.interceptors.response.use(
   async response => {
     const dataAxios = response.data
-    if (dataAxios.code === 0) {
+    if (dataAxios.ret === 0) {
       // 正常返回数据
       return dataAxios.data
     } else {
@@ -81,12 +81,15 @@ export function request (config) {
   const token = utils.cookies.get('token')
   let configDefault = {
     headers: {
-      'Authorization': token,
-      'Content-Type': get(config, 'headers.Content-Type', 'application/json')
+      'Content-Type': get(config, 'headers.Content-Type', 'application/x-www-form-urlencoded')
     },
     timeout: 5000,
     baseURL: store.state.d2admin.api.base,
     data: {}
   }
+  if (config.data === undefined) {
+    config.data = {}
+  }
+  config.data.token = token
   return service(Object.assign(configDefault, config))
 }

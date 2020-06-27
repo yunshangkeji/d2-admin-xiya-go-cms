@@ -8,10 +8,10 @@ export default ({ request }) => ({
     password = ''
   }) {
     return request({
-      url: '/api/user/login',
+      url: '/public/login_admin',
       method: 'post',
       data: {
-        user_name: username,
+        username: username,
         password: password
       }
     })
@@ -32,7 +32,7 @@ export default ({ request }) => ({
    */
   USER_CHECK_TOKEN () {
     return request({
-      url: '/api/user/check_token',
+      url: '/admin/user_check_token',
       method: 'post'
     })
   },
@@ -42,7 +42,7 @@ export default ({ request }) => ({
    */
   USER_ALL (query = {}) {
     return request({
-      url: '/api/user/index',
+      url: '/admin/user_all',
       method: 'post',
       data: query
     })

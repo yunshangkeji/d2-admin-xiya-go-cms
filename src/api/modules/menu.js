@@ -32,7 +32,7 @@ export default ({ request }) => ({
    */
   MENU_USER () {
     return request({
-      url: '/api/menu/find_all_menu',
+      url: '/admin/menu_user',
       method: 'post'
     })
   },

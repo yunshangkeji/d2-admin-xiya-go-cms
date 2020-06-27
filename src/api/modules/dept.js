@@ -6,7 +6,7 @@ export default ({ request }) => ({
    */
   DEPT_ALL (query = {}) {
     return request({
-      url: '/api/dept/findall',
+      url: '/admin/dept_all',
       method: 'post',
       data: query
     })

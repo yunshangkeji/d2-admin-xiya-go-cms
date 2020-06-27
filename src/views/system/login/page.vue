@@ -31,7 +31,8 @@
                   </el-input>
                 </el-form-item>
               </el-form>
-              <d2-tencent-captcha @success="submit">
+              <el-button size="default" @click="submit" type="primary" class="button-login" v-if="1">登录</el-button>
+              <d2-tencent-captcha @success="submit" v-else>
                 <d2-button size="default" type="primary" label="登录" class="button-login"/>
               </d2-tencent-captcha>
             </el-card>
