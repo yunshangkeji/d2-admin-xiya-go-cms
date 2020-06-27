@@ -4,7 +4,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import utils from '@/utils'
 import store from '@/store'
-import api from '@/api'
+// import api from '@/api'
 import layoutHeaderAside from '@/layout/header-aside'
 
 // fix vue-router NavigationDuplicated
@@ -82,11 +82,9 @@ router.beforeEach(async (to, from, next) => {
     await store.dispatch('d2admin/permission/load', { to: to.fullPath })
     // 验证当前路由所有的匹配中是否需要有验证的 由于在网络请求的钩子里有对 token 异常的判断，所以在这里不处理异常重定向
     if (to.matched.some(r => r.meta.auth)) {
-      await api.USER_CHECK_TOKEN()
-      next()
-    } else {
-      next()
+      // await api.USER_CHECK_TOKEN()
     }
+    next()
   } catch (error) {
     next(false)
   }

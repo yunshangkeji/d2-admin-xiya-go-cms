@@ -117,7 +117,7 @@ export default context => {
           routes.push(route)
         } catch (error) {
           utils.log.capsule('菜单', '文件不存在', 'danger')
-          utils.log.danger(err.message)
+          utils.log.danger(error.message)
         }
       }
       return routes
@@ -168,7 +168,7 @@ export default context => {
        */
       async load ({ state, rootState, commit, dispatch }, { focus = false, to = '', data }) {
         // 取消请求 - 没有登录
-        if (!data && !rootState.d2admin.user.isLogged) return
+        // if (!data && !rootState.d2admin.user.isLogged) return
         // 取消请求 - 已经加载过动态路由
         if (!focus && state.isLoaded) return
         // 获取接口原始数据

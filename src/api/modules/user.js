@@ -22,7 +22,7 @@ export default ({ request }) => ({
    */
   USER_LOGOUT () {
     return request({
-      url: '/api/user/logout',
+      url: '/admin/user_logout',
       method: 'post'
     })
   },
